@@ -1,109 +1,142 @@
-# Control Flow
+# Clyp Control Flow
 
-Control flow statements allow you to execute code conditionally or repeatedly.
+Control flow statements are the backbone of any program, allowing you to direct the execution path of your code. Clyp provides clear and intuitive constructs for conditional logic and looping.
 
-## Conditional Statements
+## Conditional Statements: `if`, `elif`, `else`
 
-`if`, `elif` (else if), and `else` are used to run code based on conditions.
+Conditional statements allow you to execute blocks of code only if certain conditions are met. Clyp uses a familiar `if`, `elif` (else if), and `else` structure.
+
+**Syntax:**
 
 ```clyp
-int x = 10;
-
-if (x > 10) {
-    print("x is greater than 10");
-} elif (x == 10) {
-    print("x is exactly 10");
+if (condition) {
+    // Code to run if the condition is true
+} elif (another_condition) {
+    // Code to run if the first condition is false and this one is true
 } else {
-    print("x is less than 10");
+    // Code to run if all preceding conditions are false
 }
 ```
 
-### Python Equivalent
-
-```python
-x = 10
-
-if x > 10:
-    print("x is greater than 10")
-elif x == 10:
-    print("x is exactly 10")
-else:
-    print("x is less than 10")
-```
-
-## Loops
-
-Loops are used to execute a block of code multiple times.
-
-### `while` Loop
-
-A `while` loop continues as long as a condition is `true`.
+**Example:**
 
 ```clyp
-let count = 0;
-while (count < 3) {
-    print("Count is: " + toString(count));
-    count = count + 1;
+int score = 85
+
+if (score >= 90) {
+    print("Grade: A")
+} elif (score >= 80) {
+    print("Grade: B")
+} elif (score >= 70) {
+    print("Grade: C")
+} else {
+    print("Grade: Needs Improvement")
+}
+// Output: Grade: B
+```
+
+## Looping Constructs
+
+Loops are used to execute a block of code repeatedly.
+
+### The `while` Loop
+
+A `while` loop executes as long as its condition remains `true`. It is ideal when you don't know in advance how many times you need to loop.
+
+**Example:**
+
+```clyp
+let countdown = 3
+while (countdown > 0) {
+    print(f"{countdown}...")
+    countdown = countdown - 1
+}
+print("Go!")
+```
+
+### The `for` Loop
+
+A `for` loop is used to iterate over a sequence, such as a `list` or a `dict`.
+
+**Example (List):**
+
+```clyp
+list[str] fruits = ["Apple", "Banana", "Cherry"]
+for fruit in fruits {
+    print(f"I love {fruit}s!")
 }
 ```
 
-### `repeat` Loop
+**Example (Dict):**
 
-The `repeat` loop is a simple way to run a block of code a specific number of times.
+```clyp
+// Note: Dictionary iteration order is not guaranteed
+dict[str, str] capitals = {"USA": "Washington D.C.", "France": "Paris"}
+for country in capitals {
+    print(f"The capital of {country} is {capitals[country]}.")
+}
+```
+
+### The `repeat` Loop
+
+The `repeat` loop is a simple, readable way to execute a block of code a fixed number of times. It is a Clyp-specific feature designed for clarity.
+
+**Syntax:**
+
+```clyp
+repeat [number] times {
+    // Code to execute
+}
+```
+
+**Example:**
 
 ```clyp
 repeat [3] times {
-    print("Hello from a repeat loop!");
+    print("Hello, Clyp!")
 }
 ```
 
-### `for` Loop
+This is conceptually similar to a `for` loop using a range in Python.
 
-Clyp also supports `for` loops for iterating over collections.
+## Loop Control Statements
+
+Clyp provides `break` and `continue` to manage loop execution dynamically.
+
+*   `break`: Immediately terminates the innermost loop.
+*   `continue`: Skips the remainder of the current iteration and proceeds to the next one.
+
+**Example (`break`):**
 
 ```clyp
-list[str] names = ["Clyp", "Python", "Code"];
-for name in names {
-    print("Hello, " + name + "!");
+# Find the first number divisible by 5
+list[int] numbers = [2, 8, 15, 11, 20]
+for num in numbers {
+    if (num % 5 == 0) {
+        print(f"Found it! {num}")
+        break // Exit the loop
+    }
+    print(f"Checking {num}...")
 }
+// Output:
+// Checking 2...
+// Checking 8...
+// Found it! 15
 ```
 
-### Python Equivalents
-
-```python
-# while loop
-count = 0
-while count < 3:
-    print(f"Count is: {count}")
-    count = count + 1
-
-# for loop (equivalent to Clyp's repeat)
-for _ in range(3):
-    print("Hello from a for loop!")
-
-# for loop over a list
-names = ["Clyp", "Python", "Code"]
-for name in names:
-    print(f"Hello, {name}!")
-```
-
-## Loop Control
-
-You can control loop execution with `break` and `continue`.
-
-*   `break`: Exits the loop immediately.
-*   `continue`: Skips the rest of the current iteration and proceeds to the next one.
+**Example (`continue`):**
 
 ```clyp
-let i = 0;
-while (i < 10) {
-    i = i + 1;
-    if (i == 3) {
-        continue; // Skip printing 3
+# Print only the even numbers
+list[int] numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers {
+    if (num % 2 != 0) {
+        continue // Skip odd numbers
     }
-    if (i == 5) {
-        break; // Exit the loop
-    }
-    print(i); // Will print 1, 2, 4
+    print(f"Even number: {num}")
 }
+// Output:
+// Even number: 2
+// Even number: 4
+// Even number: 6
 ```
