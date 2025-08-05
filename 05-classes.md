@@ -8,7 +8,7 @@ Use the `class` keyword to define a class.
 
 ```clyp
 class Counter {
-    def __init_(self) {
+    def __init_(self) returns None {
         # Constructor to initialize attributes
         self.count: int = 0;  # Initialize count to zero
     }

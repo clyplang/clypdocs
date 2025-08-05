@@ -37,13 +37,13 @@ Create a file named `hello.clyp` and add the following code:
 
 ```clyp
 # A simple "Hello, World!" program in Clyp
-str name = "World"
-print(f"Hello, {name}!")
+str name = "World";
+print(f"Hello, {name}!");
 ```
 
 **Code Breakdown:**
-*   `str name = "World"`: This line declares a variable named `name` of type `str` (string) and assigns it the value `"World"`.
-*   `print(f"Hello, {name}!")`: This calls the built-in `print` function. The `f` before the string indicates a formatted string, which allows you to embed variable values directly inside it using `{}`.
+*   `str name = "World";`: This line declares a variable named `name` of type `str` (string) and assigns it the value `"World"`.
+*   `print(f"Hello, {name}!");`: This calls the built-in `print` function. The `f` before the string indicates a formatted string, which allows you to embed variable values directly inside it using `{}`.
 
 To run your program, use the `go` command:
 

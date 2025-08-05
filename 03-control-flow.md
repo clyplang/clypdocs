@@ -10,11 +10,11 @@ Conditional statements allow you to execute blocks of code only if certain condi
 
 ```clyp
 if (condition) {
-    // Code to run if the condition is true
+    # Code to run if the condition is true
 } elif (another_condition) {
-    // Code to run if the first condition is false and this one is true
+    # Code to run if the first condition is false and this one is true
 } else {
-    // Code to run if all preceding conditions are false
+    # Code to run if all preceding conditions are false
 }
 ```
 
@@ -32,7 +32,7 @@ if (score >= 90) {
 } else {
     print("Grade: Needs Improvement")
 }
-// Output: Grade: B
+# Output: Grade: B
 ```
 
 ## Looping Constructs
@@ -46,12 +46,12 @@ A `while` loop executes as long as its condition remains `true`. It is ideal whe
 **Example:**
 
 ```clyp
-let countdown = 3
+let countdown = 3;
 while (countdown > 0) {
-    print(f"{countdown}...")
-    countdown = countdown - 1
+    print(f"{countdown}...");
+    countdown = countdown - 1;
 }
-print("Go!")
+print("Go!");
 ```
 
 ### The `for` Loop
@@ -61,19 +61,19 @@ A `for` loop is used to iterate over a sequence, such as a `list` or a `dict`.
 **Example (List):**
 
 ```clyp
-list[str] fruits = ["Apple", "Banana", "Cherry"]
+list[str] fruits = ["Apple", "Banana", "Cherry"];
 for fruit in fruits {
-    print(f"I love {fruit}s!")
+    print(f"I love {fruit}s!");
 }
 ```
 
 **Example (Dict):**
 
 ```clyp
-// Note: Dictionary iteration order is not guaranteed
-dict[str, str] capitals = {"USA": "Washington D.C.", "France": "Paris"}
+# Note: Dictionary iteration order is not guaranteed
+dict[str, str] capitals = {"USA": "Washington D.C.", "France": "Paris"};
 for country in capitals {
-    print(f"The capital of {country} is {capitals[country]}.")
+    print(f"The capital of {country} is {capitals[country]}.");
 }
 ```
 
@@ -85,7 +85,7 @@ The `repeat` loop is a simple, readable way to execute a block of code a fixed n
 
 ```clyp
 repeat [number] times {
-    // Code to execute
+    # Code to execute
 }
 ```
 
@@ -93,7 +93,7 @@ repeat [number] times {
 
 ```clyp
 repeat [3] times {
-    print("Hello, Clyp!")
+    print("Hello, Clyp!");
 }
 ```
 
@@ -110,33 +110,33 @@ Clyp provides `break` and `continue` to manage loop execution dynamically.
 
 ```clyp
 # Find the first number divisible by 5
-list[int] numbers = [2, 8, 15, 11, 20]
+list[int] numbers = [2, 8, 15, 11, 20];
 for num in numbers {
     if (num % 5 == 0) {
-        print(f"Found it! {num}")
-        break // Exit the loop
+        print(f"Found it! {num}");
+        break # Exit the loop;
     }
-    print(f"Checking {num}...")
+    print(f"Checking {num}...");
 }
-// Output:
-// Checking 2...
-// Checking 8...
-// Found it! 15
+# Output:
+# Checking 2...
+# Checking 8...
+# Found it! 15
 ```
 
 **Example (`continue`):**
 
 ```clyp
 # Print only the even numbers
-list[int] numbers = [1, 2, 3, 4, 5, 6]
+list[int] numbers = [1, 2, 3, 4, 5, 6];
 for num in numbers {
     if (num % 2 != 0) {
-        continue // Skip odd numbers
+        continue # Skip odd numbers;
     }
-    print(f"Even number: {num}")
+    print(f"Even number: {num}");
 }
-// Output:
-// Even number: 2
-// Even number: 4
-// Even number: 6
+# Output:
+# Even number: 2
+# Even number: 4
+# Even number: 6
 ```
