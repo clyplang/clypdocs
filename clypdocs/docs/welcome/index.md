@@ -76,6 +76,7 @@ Clyp does not explicitly require the `function` keyword, but using it can improv
 function main() returns null {
     print("Hello, Clyp!");
 }
+main();
 ```
 
 Run it:
