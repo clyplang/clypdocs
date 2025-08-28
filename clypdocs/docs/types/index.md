@@ -15,6 +15,8 @@ enforced at runtime by `typeguard` when the transpiled Python is
 executed. Types are primarily documentation and runtime checks; they do
 not currently power a separate static typechecker.
 
+**New in 2.1.0**: Enhanced type system with optional types (`int?`), type aliases (`type UserId = int`), and enums for improved type safety and expressiveness.
+
 ## Primitive types
 
 - int — integer numbers
@@ -33,6 +35,116 @@ function add(int a, int b) returns int {
 
 function greet(string name) returns null {
     print("Hello " + name);
+}
+```
+
+## New Type Features (2.1.0)
+
+### Optional Types
+
+Optional types explicitly handle nullable values with `?` syntax:
+
+```clyp
+# Optional parameters with defaults
+function greet(str name, str? title = null) returns str {
+    let prefix = title ?? "Mr./Ms.";
+    return "{prefix} {name}";
+}
+
+# Optional return types
+function findUser(int id) returns User? {
+    return id > 0 ? getUser(id) : null;
+}
+
+# Optional properties in classes
+class User {
+    int id;
+    str name;
+    str? email = null;  # Optional email field
+    int? age = null;    # Optional age field
+}
+```
+
+### Type Aliases
+
+Type aliases create meaningful names for complex types:
+
+```clyp
+# Basic type aliases
+type UserId = int;
+type UserName = str;
+type Timestamp = int;
+
+# Complex type aliases
+type UserData = Dict[str, Any];
+type ApiResponse = Dict[str, Union[str, int, List[Any]]];
+type EventHandler = Function[List[Any], null];
+
+# Using type aliases in functions
+function createUser(UserId id, UserName name) returns UserData {
+    return {
+        "id": id,
+        "name": name,
+        "created": getCurrentTimestamp()
+    };
+}
+
+function processUsers(List[UserData] users) returns List[UserId] {
+    return [user["id"] for user in users if user["active"]];
+}
+```
+
+### Enums
+
+Enums provide named constants with better type safety:
+
+```clyp
+# Simple enum
+enum Status {
+    Active,
+    Inactive,
+    Pending,
+    Suspended
+}
+
+# Using enums
+let userStatus = Status.Active;
+
+# Enums in pattern matching
+match userStatus {
+    when Status.Active => print("User is active")
+    when Status.Pending => print("Activation required")  
+    when Status.Inactive => print("Account deactivated")
+    when Status.Suspended => print("Account suspended")
+}
+
+# Enums in function parameters
+function updateUserStatus(User user, Status newStatus) returns bool {
+    user.status = newStatus;
+    return true;
+}
+
+# Multiple enums
+enum Priority {
+    Low,
+    Medium, 
+    High,
+    Critical
+}
+
+enum TaskType {
+    Bug,
+    Feature,
+    Enhancement,
+    Documentation
+}
+
+class Task {
+    int id;
+    str title;
+    Priority priority = Priority.Medium;
+    TaskType type = TaskType.Feature;
+    Status status = Status.Pending;
 }
 ```
 

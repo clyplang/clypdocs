@@ -17,12 +17,46 @@ walkthrough of key concepts.
 Clyp is a high-level, human-centric language that blends familiar
 imperative and object-oriented constructs with a concise syntax inspired
 by modern scripting languages. It targets rapid prototyping and
-educational use, and ships with a small standard library (`clyp.stdlib`)
-and tooling for transpiling and executing Clyp files.
+educational use, and ships with a comprehensive standard library (`clyp.stdlib`)
+and advanced tooling for transpiling and executing Clyp files.
 
 Clyp files use the `.clyp` extension. The tooling in this repository
 supports interpreted execution (`clyp run`) and conversion to Python
 (`py2clyp`/`transpiler`).
+
+### What's New in Clyp 2.1.0
+
+Clyp 2.1.0 introduces comprehensive language enhancements that significantly improve developer experience:
+
+**Modern Language Features:**
+- 🚀 **Arrow Functions**: `x => x * 2` for concise function syntax
+- 🔄 **Pipe Operator**: `value |> transform |> process` for data pipelines
+- ❓ **Ternary Operator**: `condition ? value1 : value2` for inline conditionals
+- 🛡️ **Optional Chaining**: `user?.profile?.name` for safe navigation
+- 🔗 **Null Coalescing**: `value ?? "default"` for fallback values
+- ⚡ **Compound Assignment**: `+=`, `-=`, `*=`, `/=` and more
+- 📈 **String Interpolation**: `"Hello {name}!"` with expression support
+
+**Enhanced Type System:**
+- 🎯 **Optional Types**: `int?`, `str?` for null safety
+- 🏷️ **Type Aliases**: `type UserId = int` for semantic clarity  
+- 📋 **Enums**: `enum Status { Active, Inactive }` for constants
+- 🎭 **Pattern Matching**: `match value { when ... => ... }` for complex logic
+
+**Advanced Features:**
+- ⚡ **Async/Await**: Native asynchronous programming support
+- 🧩 **Destructuring**: `let {name, age} = user` for unpacking
+- 🎨 **Array Comprehensions**: `[x*2 for x in items if x > 0]`
+- 🔒 **Constants**: `const MAX_SIZE = 100` for immutable values
+- 🛡️ **Guard Clauses**: `guard condition else return` for early exits
+
+**Developer Experience:**
+- 📦 **Project System**: `clyp.json` configuration with dependency management
+- 🛠️ **Enhanced CLI**: `clyp init`, `clyp add`, `clyp script` commands
+- 📚 **45+ New Stdlib Functions**: Enhanced utility library
+- 🎯 **Better Error Messages**: Helpful tips and suggestions
+
+See the [Language Enhancements](/language-enhancements/) guide for comprehensive coverage of all new features.
 
 ## Installation
 
@@ -105,19 +139,33 @@ Clyp prioritizes:
   semicolons to separate statements.
 - `function` declares top-level functions; methods may omit the
   `function` keyword to decrease verbosity.
-- `let` provides a familiar declaration idiom (transpiles to assignment
-  in Python).
+- `let` and `const` provide familiar declaration idioms (`let` for mutable variables,
+  `const` for immutable constants that transpile to Python assignments).
 - `import` loads other Clyp modules through the project's importer which
   falls back to Python `pyimport` when specified.
+- **New in 2.1.0**: Arrow functions (`x => x * 2`), pipe operators (`value |> func`), 
+  optional chaining (`obj?.prop`), string interpolation (`"Hello {name}"`), and much more.
+
+## Enhanced CLI and Tooling (2.1.0)
+
+- `clyp init <project>` — Create new projects with `clyp.json` configuration
+- `clyp run <file-or-directory>` — Run Clyp files or directory projects
+- `clyp format <file-or-directory>` — Format Clyp code with enhanced formatter
+- `clyp check <file-or-directory>` — Validate syntax and types with helpful tips
+- `clyp add <package>` / `clyp remove <package>` — Manage project dependencies
+- `clyp script <name>` — Run scripts defined in `clyp.json`
+- `clyp config --validate` — Validate project configuration
 
 ## Where to next
 
-- Syntax reference — detailed grammar and examples: see
-  `/docs/syntax/`.
-- Types — primitives, structs/classes, and annotations: see
-  `/docs/types/`.
-- Standard library — writable I/O, networking helpers, random utilities:
-  see `/docs/stdlib/`.
+- **Language Enhancements** — New 2.1.0 features and syntax: see
+  `/language-enhancements/`.
+- **Syntax reference** — Detailed grammar and examples: see
+  `/syntax/`.
+- **Types** — Enhanced type system with optionals, aliases, and enums: see
+  `/types/`.
+- **Standard library** — 45+ new utility functions for enhanced productivity:
+  see `/stdlib/`.
 
 ---
 

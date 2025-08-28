@@ -20,23 +20,28 @@ const sidebars = {
     {
       type: 'category',
       label: 'Welcome',
-      items: ['welcome/welcome'],
+      items: ['welcome/index'],
+    },
+    {
+      type: 'category',
+      label: 'Language Enhancements (2.1.0)',
+      items: ['language-enhancements'],
     },
     {
       type: 'category',
       label: 'Syntax',
-      items: ['syntax/syntax'],
+      items: ['syntax/index'],
     },
     {
       type: 'category',
       label: 'Types',
-      items: ['types/types'],
+      items: ['types/index'],
     },
     {
       type: 'category',
       label: 'Standard Library',
       items: [
-        'stdlib/stdlib',
+        'stdlib/index',
         'stdlib/stdlib-overview',
         {
           type: 'category',
@@ -50,7 +55,7 @@ const sidebars = {
             'stdlib/time_it',
             'stdlib/is_empty',
             'stdlib/slugify',
-            'stdlib/tostring',
+            'stdlib/toString',
             'stdlib/is_prime',
             'stdlib/to_roman_numerals',
             'stdlib/chance',
@@ -70,12 +75,12 @@ const sidebars = {
           type: 'category',
           label: 'std modules',
           items: [
-            'stdlib/modules/stdlib-modules',
-            'stdlib/modules/stdlib-modules-fs',
-            'stdlib/modules/stdlib-modules-json',
-            'stdlib/modules/stdlib-modules-math',
-            'stdlib/modules/stdlib-modules-random',
-            'stdlib/modules/stdlib-modules-time',
+            'stdlib/modules/index',
+            'stdlib/modules/fs',
+            'stdlib/modules/json',
+            'stdlib/modules/math',
+            'stdlib/modules/random',
+            'stdlib/modules/time',
           ],
         },
       ],
@@ -83,25 +88,25 @@ const sidebars = {
     {
       type: 'category',
       label: 'Examples',
-      items: ['examples/examples'],
+      items: ['examples/index'],
     },
     {
       type: 'category',
       label: 'Tooling',
-      items: ['tooling/tooling'],
+      items: ['tooling/index'],
     },
     {
       type: 'category',
       label: 'API Reference',
-      items: ['api/api'],
+      items: ['api/index'],
     },
     {
       type: 'category',
       label: 'Reference',
-      items: ['reference/reference'],
+      items: ['reference/index'],
     },
-    'faq/faq',
-    'contributing/contributing',
+    'faq/index',
+    'contributing/index',
   ],
 };
 
