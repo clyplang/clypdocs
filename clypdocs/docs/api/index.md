@@ -15,5 +15,6 @@ users.
   reverse-transpilation helpers.
 - `clyp.cli` — command-line interface utilities.
 
-Each module is documented with function signatures and examples on the
-pages below (TODO: generate from source where practical).
+Each module is documented with function signatures and examples. The API
+documentation covers the core runtime interfaces for advanced users and
+plugin developers.
